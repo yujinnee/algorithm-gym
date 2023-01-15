@@ -30,13 +30,13 @@ func solution(_ lottos:[Int], _ win_nums:[Int]) -> [Int] {
 
         //우선 맞춘 개수 기준으로 최저 순위 설정
         switch sameCount{
-        case .6: worstRank = 1
-        case .5: worstRank = 2
-        case .4: worstRank = 3
-        case .3: worstRank = 4
-        case .2: worstRank = 5
-        case .1: worstRank = 6
-        case .0: worstRank = 6
+        case 6: worstRank = 1
+        case 5: worstRank = 2
+        case 4: worstRank = 3
+        case 3: worstRank = 4
+        case 2: worstRank = 5
+        case 1: worstRank = 6
+        case 0: worstRank = 6
         // default: worstRank = 6 //default 문은 어떻게 써주는게 베스트일까?
         }
         switch sameCount{
