@@ -24,11 +24,10 @@ func solution(_ N:Int, _ stages:[Int]) -> [Int] {
     for i in 0..<N{
             arrFailRate.append((rate: Double(uncomplete[i])/Double(challengers[i]), stage: i+1))
         }
-    print(arrFailRate)
-            // arrFailRate.sort(by:{ ($0[0] < $1[0]) || ($0[1] > $1[1]) })
-    // arrFailRate.sorted{ ($0.rate,$1.stage)>($1.rate,$0.stage) }
+  
+     // arrFailRate.sorted{ ($0.rate > $1.rate) || ($0.stage < $1.stage) }
     arrFailRate.sort(by:{ ($0.rate > $1.rate) || ($0.stage < $1.stage) })
-    print(arrFailRate)
+  
     var arrFail = [Int]()
    for i in 0..<N{
        arrFail.append(arrFailRate[i].stage)
