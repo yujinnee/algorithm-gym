@@ -31,17 +31,15 @@ func zip(_ start: (row:Int,col:Int),_ finish: (row:Int,col:Int), _ arr: inout [[
                set.insert(arr[i][j])
            }
        }
-       if (set.count == 1){
+       if (set.count == 1){//셋에 모두 넣었는데 크기가 1이면 모두 같은 숫자인 것
            if(set.contains(1)){
                oneCount += 1
            }else{
                zeroCount+=1
            }
-       }else{
+       }else{//숫자가 다른게 섞여있으면 압축
            var startRow = start.row
            var startCol = start.col
-           var halfRow = (start.row+finish.row)/2
-           var halfCol = (start.col+finish.col)/2
            var finishRow = finish.row
            var finishCol = finish.col
            var newSize = size/2
