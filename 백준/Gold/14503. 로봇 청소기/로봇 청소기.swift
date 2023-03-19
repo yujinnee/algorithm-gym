@@ -5,13 +5,12 @@ var room = [[Int]]()
 input = readLine()!.split(separator: " ").compactMap{Int(String($0))!}
 var rpos = (r:input[0],c:input[1])
 var direction = input[2]
-//print(rpos)
+
 for i in 0..<n{
     room.append(readLine()!.split(separator: " ").compactMap{Int(String($0))})
 }
-var queue = [(r: Int,c: Int)]()
+
 var idx = 0
-queue.append(rpos)
 var dx = [-1,0,1,0]
 var dy = [0,1,0,-1]
 //  0
@@ -23,14 +22,7 @@ room[rpos.r][rpos.c] = 3
 count += 1
 
 while(true){
-//    print()
-//    print(direction)
-//    for r in room{
-//        print(r)
-//    }
-//    print()
-//    var cpos = queue[idx]
-//    idx += 1
+
     var cpos = rpos
     var isAllClean = true
     for i in 0..<4{
@@ -47,7 +39,6 @@ while(true){
             var nx = cpos.r+dx[direction]
             var ny = cpos.c+dy[direction]
             if(room[nx][ny]==0){
-//                queue.append((nx,ny))
                 rpos = (nx,ny)
                 room[nx][ny] = 3
                 count+=1
