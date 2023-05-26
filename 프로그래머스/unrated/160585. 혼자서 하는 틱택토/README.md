@@ -1,10 +1,10 @@
 # [unrated] 혼자서 하는 틱택토 - 160585 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/160585?language=swift) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/160585?language=cpp) 
 
 ### 성능 요약
 
-메모리: 16.3 MB, 시간: 0.05 ms
+메모리: 3.68 MB, 시간: 0.01 ms
 
 ### 구분
 
