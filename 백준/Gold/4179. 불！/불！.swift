@@ -4,11 +4,12 @@ var c = input[1]
 var maze = Array(repeating: Array(repeating: " ", count: c), count: r)
 var jpos = (0,0)
 var fpos = [(Int,Int)]()
+
 for i in 0..<r{
     var string = readLine()!.compactMap{String($0)}
-
+    maze[i]  = string
     for j in 0..<c{
-        maze[i][j] = string[j]
+//        maze[i][j] = string[j]
         if(maze[i][j]=="J"){
             maze[i][j] = "0"
             jpos = (i,j)
