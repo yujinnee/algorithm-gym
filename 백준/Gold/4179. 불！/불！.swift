@@ -6,7 +6,7 @@ var jpos = (0,0)
 var fpos = [(Int,Int)]()
 for i in 0..<r{
     var string = readLine()!.compactMap{String($0)}
-//    print(string)
+
     for j in 0..<c{
         maze[i][j] = string[j]
         if(maze[i][j]=="J"){
@@ -26,17 +26,10 @@ var idx = 0
 jqueue.append(jpos)
 fqueue.append(contentsOf: fpos)
 var possible = false
-var visitedJ = Array(repeating: Array(repeating: false, count: c), count: r)
-var visitedF = Array(repeating: Array(repeating: false, count: c), count: r)
 var count = 0
-//while(idx<jqueue.count){
+
 loop: while(jqueue.count != 0){
-//
-//    print("1")
-//    for m in maze{
-//        print(m)
-//    }
-//    print()
+
     possible = false
     
     
@@ -44,48 +37,24 @@ loop: while(jqueue.count != 0){
     while(fqueue.count != 0){
         
         var cfpos = fqueue.removeFirst()
-    //    var cjpos = jqueue[idx]
-    //    var cfpos = fqueue[idx]
+
         idx += 1
         for i in 0..<4{
             var nx = cfpos.0+dx[i]
             var ny = cfpos.1+dy[i]
-            if(0..<r ~= nx && 0..<c ~= ny && maze[nx][ny] != "#" && maze[nx][ny] != "F" && visitedF[nx][ny] == false){
+            if(0..<r ~= nx && 0..<c ~= ny && maze[nx][ny] != "#" && maze[nx][ny] != "F"){
                 nextfqueue.append((nx,ny))
                 maze[nx][ny] = "F"
-                visitedF[nx][ny] = true
             }
             
         }
     }
     fqueue.append(contentsOf: nextfqueue)
-//
-//    print("2")
-//    print(jqueue)
-//    print(fqueue)
-//    for m in maze{
-//        print(m)
-//    }
-//    print()
-    
-//    var cx = cjpos.0
-//    var cy = cjpos.1
-    
     var nextjqueue = [(Int,Int)]()
     count += 1
     while(jqueue.count != 0){
        
         var cjpos = jqueue.removeFirst()
-//        if(maze[cjpos.0][cjpos.1] == "F"){
-//
-//        }
-        
-//        print(cjpos)
-//
-//
-//        if let cnt = Int(maze[cjpos.0][cjpos.1]){
-//            count = cnt
-//        }
 
         for i in 0..<4{
             
@@ -97,11 +66,7 @@ loop: while(jqueue.count != 0){
                 break loop
             }else{
                 if(maze[nx][ny] == "."){
-//                    print("?")
-//                    print(nx,ny)
                     nextjqueue.append((nx,ny))
-                    visitedJ[nx][ny] = true
-//                    print("count\(count)")
                     maze[nx][ny] = String(count)
                     possible = true
                     
@@ -111,17 +76,7 @@ loop: while(jqueue.count != 0){
             }
         }
     }
-    
     jqueue = nextjqueue
-
-    
-//    print("3")
-//    print(jqueue)
-//    print(fqueue)
-//    for m in maze{
-//        print(m)
-//    }
-//    print()
 }
 
 if (!possible){
