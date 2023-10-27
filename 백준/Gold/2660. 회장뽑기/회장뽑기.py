@@ -29,15 +29,15 @@ while True:
     member[mem2].append(mem1)
     
 
-result = defaultdict(int) # result = {회장후보: 점수}
+result = [52 for _ in range(n+1)] # result = {회장후보: 점수}
 for i in range(1, n+1):
     visited = [0 for _ in range(n+1)]
     visited[i] = 1
     bfs(i)
     result[i] = get_max_dist()
 
-min_dist = min(result.values())
-candis = [i for i, dist in result.items() if dist == min_dist]
+min_dist = min(result)
+candis = [i for i in range(0,len(result)) if result[i] == min_dist]
 
 print(min_dist, len(candis))
 print(*candis) # 이미 입력순으로 정렬되어 있음
