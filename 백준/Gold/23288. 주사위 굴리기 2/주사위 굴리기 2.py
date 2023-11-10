@@ -1,3 +1,18 @@
+input_values = input().split()
+n, m, total_roll = map(int, input_values[0:3])
+map_data = []
+
+for _ in range(n):
+    map_row = list(map(int, input().split()))
+    map_data.append(map_row)
+
+now = (0, 0)
+dice = [4, 1, 3, 2, 5, 6]
+
+directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]  # 동남서북
+di = 0
+roll = 0
+score = 0
 def roll_to_east(dice):
     new_dice = [0, 0, 0, 0, 0, 0]
     new_dice[0] = dice[5]
@@ -41,22 +56,6 @@ def roll_to_north(dice):
     new_dice[5] = dice[3]
     return new_dice
 
-
-input_values = input().split()
-n, m, total_roll = map(int, input_values[0:3])
-map_data = []
-
-for _ in range(n):
-    map_row = list(map(int, input().split()))
-    map_data.append(map_row)
-
-now = (0, 0)
-dice = [4, 1, 3, 2, 5, 6]
-
-directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]  # 동남서북
-di = 0
-roll = 0
-score = 0
 
 while roll < total_roll:
     next_pos = (now[0] + directions[di][0], now[1] + directions[di][1])
@@ -108,5 +107,6 @@ while roll < total_roll:
         di += 0
 
     roll += 1
+    
 
 print(score)
