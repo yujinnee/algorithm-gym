@@ -9,22 +9,23 @@ func solution(_ n:Int, _ times:[Int]) -> Int64 {
         return sum
     }
     
-    var start = 1
+    var start = 0
     var end = minTime*n
-    var count = 0
-    while true {
-        count += 1
-        var mid = (start + end) % 2 == 0 ? (start + end) / 2 : (start + end) / 2 + 1
+
+    var answer = end
+    while start <= end {
+        var mid = (start + end) / 2
 
         let personNum = getPersonNum(mid)
 
         if personNum >= n {
-            end = mid
+            answer = mid
+            end = mid - 1
         }else {
-            start = mid
+            start = mid + 1
         }
-        if start == end || start + 1 == end { break }
+       
     }
     
-    return Int64(end)
+    return Int64(answer)
 }
