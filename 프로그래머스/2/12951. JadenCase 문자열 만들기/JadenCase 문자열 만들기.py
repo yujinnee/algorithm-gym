@@ -12,4 +12,5 @@ def solution(s):
             isPrevBlank = True
         else :
                 isPrevBlank = False
+    
     return answer
